@@ -57,8 +57,10 @@ $response = $weather->getWeather('深圳');
 ```php
 $response = $weather->getWeather('深圳', 'all');
 ```
+
 示例：
-```php
+
+```json
 {
     "status": "1",
     "count": "1",
@@ -132,7 +134,9 @@ $response = $weather->getWeather('深圳', 'all');
 ```php
 $response = $weather->getWeather('深圳', 'all', 'xml');
 ```
+
 示例：
+
 ```xml
 <response>
     <status>1</status>
@@ -214,10 +218,6 @@ WEATHER_API_KEY=xxxxxxxxxxxxxxxxxxxxx
     .
     .
 ```
-
-TODO
-
-
 
 ## 参考
 
