@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the overtrue/weather.
+ * This file is part of the wwhu/weather.
  *
  * (c) wwhu668<wwhu668@163.com>
  *
@@ -45,8 +45,8 @@ class Weather
     }
 
     public function getWeather($city, $type = 'base', $format = 'json')
-    {$url = 'https://restapi.amap.com/v3/weather/weatherInfo';
-
+    {
+        $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
         if (!in_array(strtolower($type), ['base', 'all'])) {
             throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
