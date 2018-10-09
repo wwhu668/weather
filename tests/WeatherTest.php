@@ -1,8 +1,15 @@
 <?php
 
+/*
+ * This file is part of the overtrue/weather.
+ *
+ * (c) wwhu668<i@wwhu668.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace Wwhu\Weather\Tests;
-
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -15,7 +22,6 @@ use Wwhu\Weather\Weather;
 
 class WeatherTest extends TestCase
 {
-
     public function testGetWeather()
     {
         $response = new Response(200, [], '{"success": true}');
@@ -26,13 +32,13 @@ class WeatherTest extends TestCase
                 'city' => '深圳',
                 'output' => 'json',
                 'extensions' => 'base',
-            ]
+            ],
         ])->andReturn($response);
 
         $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
         $w->allows()->getHttpClient()->andReturn($client);
 
-        $this->assertSame(["success" => true], $w->getWeather('深圳'));
+        $this->assertSame(['success' => true], $w->getWeather('深圳'));
 
         // xml
         $response = new Response(200, [], '<hello>content</hello>');
@@ -61,7 +67,7 @@ class WeatherTest extends TestCase
 
         // 断言异常消息为 'Invalid type value(base/all): foo'
         $this->expectExceptionMessage('Invalid type value(base/all): foo');
-    
+
         $w->getWeather('深圳', 'foo');
 
         $this->fail('Faild to assert getWeather throw exception with invalid argument.');
@@ -132,5 +138,4 @@ class WeatherTest extends TestCase
 
         $this->assertSame(['success' => true], $w->getForecastsWeather('深圳'));
     }
-
 }
