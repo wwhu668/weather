@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the overtrue/weather.
+ * This file is part of the wwhu/weather.
  *
  * (c) wwhu668<wwhu668@163.com>
  *
